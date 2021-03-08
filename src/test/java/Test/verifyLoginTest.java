@@ -1,5 +1,6 @@
 package Test;
 import general.Driver;
+import general.Screenshot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,8 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.MyAccountPage;
 
+import java.io.IOException;
+
 import static org.testng.Assert.assertEquals;
 
 public class verifyLoginTest extends Driver {
@@ -16,9 +19,10 @@ public class verifyLoginTest extends Driver {
 
 
 @Test
-    public void login() throws InterruptedException {
+    public void login() throws InterruptedException, IOException {
     HomePage home = new HomePage(driver);
     home.clickLogInLink();
+    Screenshot.takeScreenshot(driver);
     LoginPage login = new LoginPage(driver);
     login.setUserName();
     login.setLoginPassword();

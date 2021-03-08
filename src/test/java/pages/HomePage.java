@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class HomePage extends Driver{
     @FindBy(css=".nav-link.text-white")
     private WebElement loginLink;
+    @FindBy(xpath = "//a[@href='/t/bags']")
+    private WebElement categoryBags;
 
     public HomePage(WebDriver driver)
     {
@@ -20,5 +22,9 @@ public class HomePage extends Driver{
     public void clickLogInLink()
     {
         loginLink.click();
+    }
+    public void clickCategoryBags()
+    {
+        categoryBags.click();
     }
 }
