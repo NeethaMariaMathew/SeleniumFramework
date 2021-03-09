@@ -1,18 +1,15 @@
 package pages;
 
-import general.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class MyAccountPage extends Driver {
+public class MyAccountPage extends BasePage {
 
 
     @FindBy (xpath="//a[@href='/logout']")
@@ -28,11 +25,10 @@ public class MyAccountPage extends Driver {
     @FindBys(@FindBy (css="#products"))
     private List<WebElement> allProducts;
 
-    public MyAccountPage(WebDriver driver)
-    {
-        this.driver= driver;
-        PageFactory.initElements(driver, this);
+    public MyAccountPage(WebDriver driver) {
+        super(driver);
     }
+
     public void clickLogOutButton()
     {
         logoutbtn.click();
