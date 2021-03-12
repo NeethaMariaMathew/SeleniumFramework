@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 
-public class addToCart extends Driver {
+public class addToCartTest extends Driver {
     @Test
     public void addProductsToCart() throws InterruptedException {
         HomePage home = new HomePage(driver);

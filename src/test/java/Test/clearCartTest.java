@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 
-public class clearCart extends Driver {
+public class clearCartTest extends Driver {
     @Test
     public void removeItemsFromCart() throws InterruptedException {
         HomePage home = new HomePage(driver);

@@ -30,19 +30,14 @@ public class SearchPage extends BasePage {
     }
     public Boolean verifySearchResultProducts(String SearchText)
     {
-        int ntrue =0;
-        int nfalse=0;
+
         for (int i=0;i<searchResultProducts.size();i++)
         {
-            if (searchResultProducts.get(i).getText().contains(SearchText))
-                ntrue = ntrue+1;
-            else
-                nfalse = nfalse+1;
+            if (!(searchResultProducts.get(i).getText().contains(SearchText)))
+                return false;
         }
-        if(nfalse==0 && ntrue==searchResultProducts.size())
-            return true;
-        else
-            return false;
+        return  true;
+
     }
     public void search(String item)
     {

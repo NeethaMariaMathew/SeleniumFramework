@@ -23,13 +23,13 @@ public class verifyLoginTest extends Driver {
     public void login() throws InterruptedException, IOException {
     HomePage home = new HomePage(driver);
     home.clickLogInLink();
-    Screenshot.takeScreenshot(driver);
+    //Screenshot.takeScreenshot(driver);
     LoginPage login = new LoginPage(driver);
     login.login("sample@yahoo.com","pwd123");
     MyAccountPage myaccount = new MyAccountPage(driver);
-    assertEquals(myaccount.getLoginMsg(),"Logged in successfully");
+    Assert.assertEquals(myaccount.getLoginMsg(),"Logged in successfully","Login message not correct");
     wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/logout']")));
     myaccount.clickLogOutButton();
-    assertEquals(myaccount.getLogOutMsg(),"Signed out successfully.");
+    Assert.assertEquals(myaccount.getLogOutMsg(),"Signed out successfully.","Logout message is incorrect");
 }
 }
