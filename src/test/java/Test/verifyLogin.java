@@ -15,9 +15,7 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
 
-public class verifyLoginTest extends Driver {
-
-
+public class verifyLogin extends Driver {
 
 @Test
     public void login() throws InterruptedException, IOException {

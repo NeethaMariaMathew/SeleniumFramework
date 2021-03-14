@@ -1,14 +1,16 @@
 package Test;
 
 import general.Driver;
-import general.Screenshot;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 
-public class addToCartTest extends Driver {
+public class clearCart extends Driver {
     @Test
-    public void addProductsToCart() throws InterruptedException {
+    public void removeItemsFromCart() throws InterruptedException {
         HomePage home = new HomePage(driver);
         home.clickLogInLink();
         LoginPage login = new LoginPage(driver);
@@ -18,12 +20,13 @@ public class addToCartTest extends Driver {
         search.clickSearch();
         double amount = search.selectItemFromSearchResults("Ruby on Rails Mug");
         ProductPage productPage = new ProductPage(driver);
+        productPage.updateItemQuantity("3");
         productPage.clickAddToCartButton();
-        Thread.sleep(5000);
-        ShoppingCartPage cart = new ShoppingCartPage(driver);
-        cart.clickCheckOutBtn();
-        CheckOutPage checkOutPage=new CheckOutPage(driver);
-        double orderTotal = checkOutPage.getOrderAmount();
-        Assert.assertEquals(amount,orderTotal);
+        ShoppingCartPage shoppingCart = new ShoppingCartPage(driver);
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".delete")));
+        shoppingCart.deleteItemCart();
+        Assert.assertEquals(shoppingCart.getAlertText(),"Your cart is empty");
     }
+
+
 }

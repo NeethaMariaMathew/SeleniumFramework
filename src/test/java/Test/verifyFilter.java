@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.BagsPage;
 import pages.HomePage;
 
-public class verifyFilterTest extends Driver {
+public class verifyFilter extends Driver {
     @Test
     public void Filter() throws InterruptedException {
         HomePage homepage = new HomePage(driver);

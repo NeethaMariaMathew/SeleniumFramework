@@ -11,7 +11,7 @@ import pages.SearchPage;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class verifySearchTest extends Driver {
+public class verifySearch extends Driver {
     @Test
     public void searchRuby() throws InterruptedException {
         SearchPage searchPage = new SearchPage(driver);
