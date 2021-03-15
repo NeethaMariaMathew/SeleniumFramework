@@ -2,19 +2,20 @@ package Test;
 
 import general.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.*;
 
 import java.io.IOException;
-
+@Listeners(general.Listener.class)
 public class completeTest extends Driver {
     @Test(priority = 1)
     public void login() throws InterruptedException, IOException {
         HomePage home = new HomePage(driver);
         home.clickLogInLink();
-        //Screenshot.takeScreenshot(driver);
         LoginPage login = new LoginPage(driver);
         login.login("sample@yahoo.com", "pwd123");
         MyAccountPage myaccount = new MyAccountPage(driver);
@@ -90,5 +91,6 @@ public class completeTest extends Driver {
         double orderTotal = checkOutPage.getOrderAmount();
         Assert.assertEquals(amount, orderTotal);
     }
+
 }
 

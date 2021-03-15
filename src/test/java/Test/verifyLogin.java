@@ -1,6 +1,5 @@
 package Test;
 import general.Driver;
-import general.Screenshot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,7 +20,6 @@ public class verifyLogin extends Driver {
     public void login() throws InterruptedException, IOException {
     HomePage home = new HomePage(driver);
     home.clickLogInLink();
-    //Screenshot.takeScreenshot(driver);
     LoginPage login = new LoginPage(driver);
     login.login("sample@yahoo.com","pwd123");
     MyAccountPage myaccount = new MyAccountPage(driver);
